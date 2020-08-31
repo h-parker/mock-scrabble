@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Scrabble!
+	</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<body>
+	<table id='board'>
+	{% for i in range(15) %}
+		<tr>
+
+		{% for j in range(15) %}
+
+			{% if i == 7 and j == 7 %}
+				<td id='ct'>
+					{{currBoard[i][j]}}
+				</td>
+
+			{% elif currBoard[i][j] == 'TRIPLE\nWORD\nSCORE' %}
+				<td id='tw'>
+					{{currBoard[i][j]}}
+				</td>
+
+			{% elif currBoard[i][j] == 'TRIPLE\nLETTER\nSCORE' %}
+				<td id='tl'>
+					{{currBoard[i][j]}}
+				</td>
+
+			{% elif currBoard[i][j] == 'DOUBLE\nWORD\nSCORE' %}
+				<td id='dw'>
+					{{currBoard[i][j]}}
+				</td>
+
+			{% elif currBoard[i][j] == 'DOUBLE\nLETTER\nSCORE' %}
+				<td id='dl'>
+					{{currBoard[i][j]}}
+				</td>
+
+			{% else %}
+				<td>
+					{{currBoard[i][j]}}
+				</td>
+
+			{% endif %}
+
+		{% endfor %}
+		</tr>
+
+	{% endfor %}
+	</table>
+	<table id='player-tiles'>
+		{% for i in range(7) %}
+			<td id='player-tile'>
+				{{letters[i]}}
+			</td>
+		{% endfor %}
+	</table>
+</body>
+</html>

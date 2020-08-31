@@ -1,0 +1,68 @@
+/* spacing and orientation */
+
+table#board {
+  table-layout: fixed;
+  margin-left:auto; 
+  margin-right:auto;
+  margin-top:40px;
+  border: 5px solid maroon;
+  padding: 5px;
+}
+
+table#player-tiles {
+  table-layout: absolute;
+  margin-left:auto; 
+  margin-right:auto;
+  margin-top:2vh;
+  bottom:0px;
+  border:5px solid #3F250B;
+  padding:2px;
+}
+
+
+/* coloring of tiles */
+td {
+  width:5vh;
+  height:5vh;
+  background:beige;
+}
+
+
+td#tw {
+	background:red;
+}
+
+td#dw {
+	background:pink;
+}
+
+td#dl {
+	background:lightcyan;
+}
+
+td#tl {
+	background: skyblue;
+}
+
+td#ct {
+	background:pink;
+}
+
+td#player-tile {
+	font-size:3vh;
+}
+
+
+/* typography */
+
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+tbody td {
+  text-align: center;
+  font-size: 1vh;
+}
+
+
