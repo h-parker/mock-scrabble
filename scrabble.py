@@ -27,6 +27,4 @@ def home():
 			elif i + j*15 == 112:
 				board[i][j] = '☆'
 
-	print(board)
-
 	return render_template('board.html', currBoard=board, letters=letters)

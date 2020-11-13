@@ -4,43 +4,60 @@
 	<title>
 		Scrabble!
 	</title>
+
+	<!-- connect CSS file to style page --> 
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}">
+
+	<!-- font I'm using for the board -->
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
 <body>
-	<table id='board'>
+	<table class='board'>
 	{% for i in range(15) %}
 		<tr>
 
 		{% for j in range(15) %}
 
 			{% if i == 7 and j == 7 %}
-				<td id='ct'>
-					{{currBoard[i][j]}}
+				<td class='center' id="square_number_{{15*i + j}}">
+					<div class="dropzone">
+						{{ currBoard[i][j] }}
+					</div>
 				</td>
 
 			{% elif currBoard[i][j] == 'TRIPLE\nWORD\nSCORE' %}
-				<td id='tw'>
-					{{currBoard[i][j]}}
+				<td class='tw' id="square_number_{{15*i + j}}">
+					<div class="dropzone">
+						{{ currBoard[i][j] }}
+					</div>
 				</td>
 
 			{% elif currBoard[i][j] == 'TRIPLE\nLETTER\nSCORE' %}
-				<td id='tl'>
-					{{currBoard[i][j]}}
+				<td class='tl' id="square_number_{{15*i + j}}">
+					<div class="dropzone">
+						{{ currBoard[i][j] }}
+					</div>
 				</td>
 
 			{% elif currBoard[i][j] == 'DOUBLE\nWORD\nSCORE' %}
-				<td id='dw'>
-					{{currBoard[i][j]}}
+				<td class='dw' id="square_number_{{15*i + j}}">
+					<div class="dropzone">
+						{{ currBoard[i][j] }}
+					</div>
 				</td>
 
 			{% elif currBoard[i][j] == 'DOUBLE\nLETTER\nSCORE' %}
-				<td id='dl'>
-					{{currBoard[i][j]}}
+				<td class='dl' id="square_number_{{15*i + j}}">
+					<div class="dropzone">
+						{{ currBoard[i][j] }}
+					</div>
 				</td>
 
 			{% else %}
-				<td>
-					{{currBoard[i][j]}}
+				<td id="square_number_{{15*i + j}}"> 
+					<div class="dropzone">
+						{{ currBoard[i][j] }}
+					</div>
 				</td>
 
 			{% endif %}
@@ -50,12 +67,35 @@
 
 	{% endfor %}
 	</table>
-	<table id='player-tiles'>
+	<table class='player-tiles' >
 		{% for i in range(7) %}
-			<td id='player-tile'>
-				{{letters[i]}}
+			<td class='player-tile' >
+				<div class="dropzone">
+					<div class="draggable">
+						{{letters[i]}}
+					</div>
+				</div>
 			</td>
 		{% endfor %}
 	</table>
+
+
+	<!-- using Shopify's Draggable library -->
+	<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/draggable.bundle.js"> </script>
+	<script type="text/javascript">
+		let dropzones = document.querySelectorAll('.dropzone');
+ 
+		let droppable = new Draggable.Droppable(
+		  dropzones,
+		  {
+		    draggable: '.draggable',
+		    dropzone:  '.dropzone',
+		    mirror:    { constrainDimensions: true }
+		  }
+		);
+	</script>
+
 </body>
+
 </html>
+

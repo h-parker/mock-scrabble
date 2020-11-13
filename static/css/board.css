@@ -1,6 +1,6 @@
 /* spacing and orientation */
 
-table#board {
+table.board {
   table-layout: fixed;
   margin-left:auto; 
   margin-right:auto;
@@ -9,7 +9,7 @@ table#board {
   padding: 5px;
 }
 
-table#player-tiles {
+table.player-tiles {
   table-layout: absolute;
   margin-left:auto; 
   margin-right:auto;
@@ -28,29 +28,44 @@ td {
 }
 
 
-td#tw {
+/* triple word score square*/
+td.tw {
 	background:red;
 }
 
-td#dw {
+/* double word score square*/
+td.dw {
 	background:pink;
 }
 
-td#dl {
+/* double letter score square*/
+td.dl {
 	background:lightcyan;
 }
 
-td#tl {
+/* triple letter score square*/
+td.tl {
 	background: skyblue;
 }
 
-td#ct {
+/* center square*/
+td.center {
 	background:pink;
 }
 
-td#player-tile {
+
+td.player-tile {
 	font-size:3vh;
 }
+
+/* so the squares recieving tiles are all 
+big enough that things can be dragged and dropped */
+div.dropzone {
+  width:4vh;
+  height:4vh;
+  text-align: center;
+}
+
 
 
 /* typography */
